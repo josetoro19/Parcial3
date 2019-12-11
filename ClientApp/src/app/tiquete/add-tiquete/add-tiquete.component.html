@@ -1,0 +1,71 @@
+<div class="">
+    <h2>Registro de Tiquetes</h2>
+    <br>
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>Id:</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Digite Id" type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid':  f.id.errors }">
+                        <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                            <div *ngIf="f.id.errors.required">Identificacion Requerida</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Ruta:</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Seleccione la ruta" type="text" formControlName="rutaId" class="form-control" [ngClass]="{ 'is-invalid':  f.rutaId.errors }">
+                        <button class="btn btn-primary" (click)="openModalRuta()">Buscar</button>
+                        <div *ngIf="submitted && f.rutaId.errors" class="invalid-feedback">
+                            <div *ngIf="f.rutaId.errors.required">La ruta es necesaria</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Valor Ruta:</label>
+                    </div>
+                    <div class="form-group">
+                        <input readonly placeholder="Valor ruta" type="text" formControlName="valorR" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>Cliente:</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Seleccione un cliente" type="text" formControlName="identificacionCliente" class="form-control" [ngClass]="{ 'is-invalid':  f.identificacionCliente.errors }">
+                        <button class="btn btn-primary" (click)="openModalCliente()">Buscar</button>
+                        <div *ngIf="submitted && f.identificacionCliente.errors" class="invalid-feedback">
+                            <div *ngIf="f.identificacionCliente.errors.required">El  cliente es necesario</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre Cliente:</label>
+                    </div>
+                    <div class="form-group">
+                        <input readonly  class="form-control" formControlName="nombreCliente">
+                    </div>
+                    <div class="form-group">
+                        <label>Cliente:</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Digite La cantidad" type="text" formControlName="cantidad" class="form-control" [ngClass]="{ 'is-invalid':  f.cantidad.errors }">
+                        <div *ngIf="submitted && f.cantidad.errors" class="invalid-feedback">
+                            <div *ngIf="f.cantidad.errors.required">La cantidad es necesario</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary mr-1">Registrar</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancelar</button>
+        </div>
+    </form>
+</div>
+

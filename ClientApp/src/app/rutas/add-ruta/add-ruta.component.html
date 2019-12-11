@@ -1,0 +1,58 @@
+<div class="">
+    <h2>Registro de Rutas</h2>
+    <br>
+    <form [formGroup]="registerForm" (submit)="onSubmit()">
+        <div class="form-row">
+            <div class="col-md-6">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>Codigo:</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Digite Codigo" type="text" formControlName="id" class="form-control" [ngClass]="{ 'is-invalid':  f.id.errors }">
+                        <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                            <div *ngIf="f.id.errors.required">Codigo Requerido</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Origen:</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Digite el origen" type="text" formControlName="origen" class="form-control" [ngClass]="{ 'is-invalid':  f.origen.errors }">
+                        <div *ngIf="submitted && f.origen.errors" class="invalid-feedback">
+                            <div *ngIf="f.origen.errors.required">El Origen es necesario</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="box-body">
+                    <div class="form-group">
+                        <label>Destino:</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Digite Destino" type="text" formControlName="destino" class="form-control" [ngClass]="{ 'is-invalid':  f.destino.errors }">
+                        <div *ngIf="submitted && f.destino.errors" class="invalid-feedback">
+                            <div *ngIf="f.destino.errors.required">El destino es necesario</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Valor:</label>
+                    </div>
+                    <div class="form-group">
+                        <input placeholder="Digite el valor" class="form-control" formControlName="valor" [ngClass]="{ 'is-invalid':  f.valor.errors }">
+                        <div *ngIf="submitted && f.valor.errors" class="invalid-feedback">
+                            <div *ngIf="f.valor.errors.required">Valor requerido</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary mr-1">Registrar</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+
